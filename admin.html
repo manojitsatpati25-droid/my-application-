@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Panel</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#0f172a;
+color:white;
+}
+
+.header{
+background:#1e293b;
+padding:18px;
+text-align:center;
+font-size:28px;
+font-weight:bold;
+}
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:20px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:20px;
+}
+
+.card{
+
+background:#1e293b;
+padding:20px;
+
+border-radius:15px;
+
+}
+
+.card h2{
+
+margin-bottom:15px;
+font-size:22px;
+
+}
+
+.stat{
+
+font-size:35px;
+font-weight:bold;
+
+color:#22c55e;
+
+}
+
+button{
+
+width:100%;
+
+padding:12px;
+
+margin-top:10px;
+
+border:none;
+
+border-radius:10px;
+
+cursor:pointer;
+
+font-size:16px;
+
+color:white;
+
+}
+
+.blue{
+
+background:#2563eb;
+
+}
+
+.green{
+
+background:#16a34a;
+
+}
+
+.red{
+
+background:#dc2626;
+
+}
+
+.orange{
+
+background:#ea580c;
+
+}
+
+table{
+
+width:100%;
+
+border-collapse:collapse;
+
+margin-top:20px;
+
+}
+
+th,td{
+
+padding:12px;
+
+border-bottom:1px solid #334155;
+
+text-align:left;
+
+}
+
+th{
+
+background:#1e293b;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+
+ADMIN PANEL
+
+</div>
+
+<div class="container">
+
+<div class="grid">
+
+<div class="card">
+
+<h2>Total Users</h2>
+
+<div id="totalUsers" class="stat">
+
+0
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>Online Players</h2>
+
+<div id="onlineUsers" class="stat">
+
+0
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>Total Bets</h2>
+
+<div id="totalBets" class="stat">
+
+0
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>Pending Withdrawals</h2>
+
+<div id="pendingWithdraw" class="stat">
+
+0
+
+</div>
+
+</div>
+
+</div>
+
+<br>
+
+<div class="card">
+
+<h2>Game Controls</h2>
+
+<button class="green" id="startGame">
+
+▶ Start Game
+
+</button>
+
+<button class="red" id="stopGame">
+
+■ Stop Game
+
+</button>
+
+<button class="orange" id="nextRound">
+
+⟳ Next Round
+
+</button>
+
+</div>
+
+<br>
+
+<div class="card">
+
+<h2>Pending Withdraw Requests</h2>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>User</th>
+
+<th>Amount</th>
+
+<th>UPI</th>
+
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody id="withdrawTable">
+
+</tbody>
+
+</table>
+
+</div>
+
+<br>
+
+<div class="card">
+
+<h2>Recent Bets</h2>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>User</th>
+
+<th>Round</th>
+
+<th>Color</th>
+
+<th>Amount</th>
+
+<th>Status</th>
+
+</tr>
+
+</thead>
+
+<tbody id="betTable">
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+<script type="module" src="admin.js"></script>
+
+</body>
+
+</html>

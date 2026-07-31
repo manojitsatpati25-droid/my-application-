@@ -1,0 +1,9 @@
+{
+  "{
+  "appId": "com.manojit.myapplication",
+  "appName": "My Application",
+  "webDir": ".",
+  "server": {
+    "androidScheme": "https"
+  }
+}

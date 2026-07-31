@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Wallet</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#0f172a;
+color:white;
+}
+
+.header{
+background:#1e293b;
+padding:18px;
+text-align:center;
+font-size:28px;
+font-weight:bold;
+}
+
+.container{
+max-width:450px;
+margin:20px auto;
+padding:20px;
+}
+
+.card{
+background:#1e293b;
+padding:20px;
+border-radius:15px;
+text-align:center;
+margin-bottom:20px;
+}
+
+.balance{
+font-size:45px;
+font-weight:bold;
+color:#22c55e;
+margin-top:15px;
+}
+
+.info{
+margin-top:10px;
+color:#cbd5e1;
+}
+
+button{
+width:100%;
+padding:15px;
+margin-top:15px;
+border:none;
+border-radius:10px;
+font-size:17px;
+cursor:pointer;
+color:white;
+}
+
+.deposit{
+background:#16a34a;
+}
+
+.withdraw{
+background:#dc2626;
+}
+
+.history{
+background:#2563eb;
+}
+
+.back{
+background:#475569;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+My Wallet
+</div>
+
+<div class="container">
+
+<div class="card">
+
+<h2>Available Balance</h2>
+
+<div id="wallet" class="balance">
+₹0
+</div>
+
+<div class="info">
+Realtime Firebase Wallet
+</div>
+
+</div>
+
+<button id="addMoneyBtn" class="deposit">
+➕ Add Money
+</button>
+
+<button id="withdrawMoneyBtn" class="withdraw">
+➖ Withdraw
+</button>
+
+<button class="history" onclick="location.href='history.html'">
+📜 Transaction History
+</button>
+
+<button class="back" onclick="location.href='dashboard.html'">
+⬅ Back to Dashboard
+</button>
+
+</div>
+
+<script type="module" src="wallet.js"></script>
+
+</body>
+</html>

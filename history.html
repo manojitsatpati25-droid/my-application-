@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Bet History</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#0f172a;
+color:white;
+}
+
+.header{
+background:#1e293b;
+padding:15px;
+text-align:center;
+font-size:24px;
+font-weight:bold;
+}
+
+.container{
+padding:15px;
+max-width:600px;
+margin:auto;
+}
+
+.card{
+background:#1e293b;
+padding:15px;
+margin-bottom:12px;
+border-radius:12px;
+}
+
+.row{
+display:flex;
+justify-content:space-between;
+margin:6px 0;
+}
+
+.win{
+color:#22c55e;
+font-weight:bold;
+}
+
+.loss{
+color:#ef4444;
+font-weight:bold;
+}
+
+.pending{
+color:#facc15;
+font-weight:bold;
+}
+
+button{
+
+width:100%;
+padding:14px;
+margin-top:20px;
+
+background:#2563eb;
+color:white;
+
+border:none;
+border-radius:10px;
+
+font-size:17px;
+
+cursor:pointer;
+
+}
+
+button:hover{
+
+background:#1d4ed8;
+
+}
+
+#empty{
+
+text-align:center;
+margin-top:40px;
+color:#94a3b8;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+
+Bet History
+
+</div>
+
+<div class="container">
+
+<div id="historyList">
+
+<div id="empty">
+
+Loading...
+
+</div>
+
+</div>
+
+<button onclick="goTo('dashboard.html')">
+
+⬅ Back to Dashboard
+
+</button>
+
+</div>
+
+<script type="module">
+
+import { auth, db } from "./firebase.js";
+
+import {
+onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
+
+import {
+collection,
+query,
+where,
+orderBy,
+onSnapshot
+} from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
+
+window.goTo=function(page){
+
+location.href=page;
+
+};
+
+onAuthStateChanged(auth,(user)=>{
+
+if(!user){
+
+location.href="index.html";
+
+return;
+
+}
+
+const history=document.getElementById("historyList");
+
+const q=query(
+
+collection(db,"bets"),
+
+where("uid","==",user.uid),
+
+orderBy("createdAt","desc")
+
+);
+
+onSnapshot(q,(snap)=>{
+
+history.innerHTML="";
+
+if(snap.empty){
+
+history.innerHTML="<div id='empty'>No Bets Found</div>";
+
+return;
+
+}
+
+snap.forEach(doc=>{
+
+const bet=doc.data();
+
+let resultClass="pending";
+
+if(bet.status==="win") resultClass="win";
+
+if(bet.status==="lose") resultClass="loss";
+
+history.innerHTML+=`
+
+<div class="card">
+
+<div class="row">
+
+<span>Round</span>
+
+<b>${bet.round}</b>
+
+</div>
+
+<div class="row">
+
+<span>Color</span>
+
+<b>${bet.color}</b>
+
+</div>
+
+<div class="row">
+
+<span>Amount</span>
+
+<b>₹${bet.amount}</b>
+
+</div>
+
+<div class="row">
+
+<span>Status</span>
+
+<b class="${resultClass}">
+
+${bet.status}
+
+</b>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+});
+
+});
+
+</script>
+
+</body>
+
+</html>

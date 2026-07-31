@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Withdraw Money</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#0f172a;
+color:#fff;
+}
+
+.header{
+background:#1e293b;
+padding:18px;
+text-align:center;
+font-size:28px;
+font-weight:bold;
+}
+
+.container{
+max-width:450px;
+margin:25px auto;
+padding:20px;
+}
+
+.card{
+background:#1e293b;
+padding:20px;
+border-radius:15px;
+}
+
+.balance{
+text-align:center;
+font-size:36px;
+font-weight:bold;
+color:#22c55e;
+margin:20px 0;
+}
+
+label{
+display:block;
+margin-top:15px;
+margin-bottom:8px;
+}
+
+input{
+width:100%;
+padding:14px;
+border:none;
+border-radius:10px;
+font-size:16px;
+outline:none;
+}
+
+button{
+width:100%;
+padding:15px;
+margin-top:18px;
+border:none;
+border-radius:10px;
+font-size:17px;
+cursor:pointer;
+color:white;
+}
+
+.submit{
+background:#dc2626;
+}
+
+.submit:hover{
+background:#b91c1c;
+}
+
+.back{
+background:#2563eb;
+}
+
+.back:hover{
+background:#1d4ed8;
+}
+
+#status{
+margin-top:20px;
+text-align:center;
+font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+
+Withdraw Money
+
+</div>
+
+<div class="container">
+
+<div class="card">
+
+<h3 align="center">
+
+Available Balance
+
+</h3>
+
+<div id="wallet" class="balance">
+
+₹0
+
+</div>
+
+<label>
+
+Withdraw Amount
+
+</label>
+
+<input
+type="number"
+id="amount"
+placeholder="Enter Amount">
+
+<label>
+
+UPI ID
+
+</label>
+
+<input
+type="text"
+id="upi"
+placeholder="example@upi">
+
+<button
+id="withdrawBtn"
+class="submit">
+
+Submit Withdrawal
+
+</button>
+
+<div id="status"></div>
+
+</div>
+
+<button
+class="back"
+onclick="location.href='wallet.html'">
+
+⬅ Back
+
+</button>
+
+</div>
+
+<script type="module" src="withdraw.js"></script>
+
+</body>
+
+</html>
