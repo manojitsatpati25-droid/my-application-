@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="title_activity_main">My Application</string>
+    <string name="package_name">com.manojit.myapplication</string>
+    <string name="custom_url_scheme">com.manojit.myapplication</string>
+</resources>

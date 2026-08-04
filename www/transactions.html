@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Transactions</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#0f172a;
+color:white;
+}
+
+.header{
+background:#1e293b;
+padding:18px;
+text-align:center;
+font-size:28px;
+font-weight:bold;
+}
+
+.container{
+max-width:600px;
+margin:auto;
+padding:20px;
+}
+
+.card{
+background:#1e293b;
+padding:15px;
+border-radius:12px;
+margin-bottom:12px;
+}
+
+.row{
+display:flex;
+justify-content:space-between;
+margin:8px 0;
+}
+
+.deposit{
+color:#22c55e;
+font-weight:bold;
+}
+
+.withdraw{
+color:#ef4444;
+font-weight:bold;
+}
+
+.bet{
+color:#facc15;
+font-weight:bold;
+}
+
+.win{
+color:#38bdf8;
+font-weight:bold;
+}
+
+.pending{
+color:orange;
+}
+
+.success{
+color:#22c55e;
+}
+
+.failed{
+color:#ef4444;
+}
+
+.empty{
+text-align:center;
+padding:40px;
+color:#94a3b8;
+}
+
+button{
+width:100%;
+padding:15px;
+margin-top:20px;
+border:none;
+border-radius:10px;
+background:#2563eb;
+color:white;
+font-size:17px;
+cursor:pointer;
+}
+
+button:hover{
+background:#1d4ed8;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+
+Transaction History
+
+</div>
+
+<div class="container">
+
+<div id="transactionList">
+
+<div class="empty">
+
+Loading...
+
+</div>
+
+</div>
+
+<button onclick="location.href='wallet.html'">
+
+⬅ Back To Wallet
+
+</button>
+
+</div>
+
+<script type="module" src="transactions.js"></script>
+
+</body>
+</html>
